@@ -79,10 +79,71 @@
                     <fieldset>
                         <legend>Services</legend>
 
+                            <!-- Main services -->
+                            <div>
+                                <label for="">Type of Service : </label>
+                                <select name="" id="services">
+                                    <option value="" disabled hidden selected>Please Choose...</option>
+                                    <option value="removables">Removables</option>
+                                    <option value="restorations">Restorations</option>
+                                </select>
+                            </div>
+
+                            <!-- Removables or Restoration services -->
+                            <div id="services-options">
+
+                            </div>
+
+
                     </fieldset>
                 </form>
             </article>
 
-        </section>    
+        </section>  
+        <footer>
+            <p>&copy; 2023 Dental Lab App. All rights reserved by Aenan Bashir.</p>
+        </footer>
+        <!-- JavaScript Section -->
+        <script>
+            // selecting services
+            let servicesSelection = document.getElementById("services");
+
+            // First Drop down 
+            let removablesSelection = '<label for="">Type of Removables : </label> \
+                                <select name="" id="removables"> \
+                                    <option value="" disabled hidden selected>Please Choose...</option> \
+                                    <option value="nightGuard">NightGuard</option> \
+                                    <option value="whiteningTray">Whitening Tray</option> \
+                                    <option value="digitalModel">Digital Models</option> \
+                                    <option value="splint">Splint</option> \
+                                </select>';
+            
+            let restorationsSelection = '<label for="">Type of Restorations : </label> \
+                                <select name="" id="restorations"> \
+                                    <option value="" disabled hidden selected>Please Choose...</option> \
+                                    <option value="crown">Crown</option> \
+                                    <option value="implant">Implant</option> \
+                                </select>';
+
+            // Selection of First Drop down as per selction
+            servicesSelection.addEventListener("change", function(){ 
+                
+                if (servicesSelection.value == "removables") {
+                    document.getElementById("services-options").innerHTML = removablesSelection;
+                }else{
+                    document.getElementById("services-options").innerHTML = restorationsSelection;
+                    
+                    // selecting restorations option
+                    let restorationSelectionFinal = document.getElementById("restorations");
+
+                    restorationSelectionFinal.addEventListener("change", function(){ 
+                        
+                        console.log("yes it is working");
+                    });
+                };
+            });
+
+           
+        </script>  
     </body>
 </html>
