@@ -93,16 +93,25 @@
                             <div id="services-options">
 
                             </div>
+                            
+                            <!-- Tooth and Material Selection -->
+                             <div id="toothMaterial">
 
+                             </div>
+
+                            
 
                     </fieldset>
                 </form>
             </article>
 
-        </section>  
+        </section> 
+
+        <!-- footer  -->
         <footer>
-            <p>&copy; 2023 Dental Lab App. All rights reserved by Aenan Bashir.</p>
+            <p>&copy; 2025 Dental Lab App. All rights reserved by Aenan Bashir.</p>
         </footer>
+
         <!-- JavaScript Section -->
         <script>
             // selecting services
@@ -125,11 +134,23 @@
                                     <option value="implant">Implant</option> \
                                 </select>';
 
+            let restorationsTeethSelection = '<label for="tooth" >Tooth : </label> \
+                            <input type="text" placeholder="LL / LR / UL / UR"> \
+                            <label for="">Material</label> \
+                            <select name="" id=""> \
+                                <option value="zr">Zirconia</option> \
+                                <option value="emax">Emax</option> \
+                                <option value="metal">Metal</option> \
+                                <option value="pbc">Porcelin Bonded</option> \
+                            </select>';
+
             // Selection of First Drop down as per selction
             servicesSelection.addEventListener("change", function(){ 
                 
                 if (servicesSelection.value == "removables") {
                     document.getElementById("services-options").innerHTML = removablesSelection;
+
+                    document.getElementById("toothMaterial").innerHTML = "";
                 }else{
                     document.getElementById("services-options").innerHTML = restorationsSelection;
                     
@@ -138,7 +159,7 @@
 
                     restorationSelectionFinal.addEventListener("change", function(){ 
                         
-                        console.log("yes it is working");
+                        document.getElementById("toothMaterial").innerHTML = restorationsTeethSelection;
                     });
                 };
             });
