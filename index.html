@@ -23,7 +23,7 @@
             <!-- Orders Table -->
             <article>
                 <h2>Orders</h2>
-                <table border="1">
+                <table border="1" id="casesTable">
                     <thead>
                         <th>ID</th>
                         <th>Dentist</th>
@@ -54,6 +54,39 @@
         <footer>
             <p>&copy; 2025 Dental Lab App. All rights reserved by Aenan Bashir.</p>
         </footer>  
+
+        <script>
+            if (localStorage.getItem("patientData") === null) {
+                // Code to execute when there is no patientData in localStorage
+            } else {
+                const allData =[];
+                allData.push(JSON.parse(localStorage.getItem("patientData")));
+                // Code to execute when patientData exists in localStorage
+
+                // just to check one data (will delete this after i put all values to their variables)
+                console.log(allData[0][1].case_id);
+
+                console.log(allData[0].length);
+
+                // Appending the cases table
+
+                let caseTable = document.getElementById("casesTable");
+
+                let tableAddition = "<tr> \
+                        <td>John Doe</td> \
+                        <td>John Doe</td> \
+                        <td>John Doe</td> \
+                    </tr>";
+
+                for ( let i = 0 ; i < allData[0].length ; i++ ){
+                    caseTable.insertAdjacentHTML('beforeend', tableAddition);
+                }
+
+                
+            }
+
+            
+        </script>
             
     </body>
 </html>

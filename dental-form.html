@@ -195,6 +195,7 @@
                 const patientValues = {case_id:caseId , patient_title:patientTitle , first_name:firstName , last_name:lastName , dentist_name:dentistName , clinic_name:clinic , start_date:startDate , due_date:dueDate , delivery_method:delivery};
 
                 // Array of all data
+                //serialization of data (Object to JSON.stringify) and storing data in local storage
 
                 if (localStorage.getItem("patientData") == null){
                         const allData = [];
@@ -206,16 +207,8 @@
                         localStorage.setItem("patientData",JSON.stringify(allData));
                     }
 
-
-                //serialization of data (Object to JSON.stringify) and storing data in local storage
-
-                // localStorage.setItem("patientData" , JSON.stringify(allData));
-
                 
             });
-            
-
-            
            
         </script>  
     </body>
