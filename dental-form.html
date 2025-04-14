@@ -172,10 +172,15 @@
 
             // Submit button actions
             // forms to values
-            // values to local memory
+            // make array of values
+            // values to local memory (serialization  of data)
             // take the page to index
-            // update the table on index with new table always when open index 
+            // update the table on index with new table always when open index (deserialization of data)
+
+            // Submit Button
             document.getElementById("sub").addEventListener("click", function(){
+
+                // forms to values
                 let caseId = document.getElementById("caseId").value;
                 let patientTitle = document.getElementById("patientTitle").value
                 let firstName = document.getElementById("firstName").value;
@@ -186,7 +191,27 @@
                 let dueDate = document.getElementById("dueDate").value;
                 let delivery = document.getElementById("delivery").value;
                 
-                console.log(caseId, patientTitle, firstName, lastName, dentistName, clinic,startDate,dueDate,delivery);
+                //values to Object
+                const patientValues = {case_id:caseId , patient_title:patientTitle , first_name:firstName , last_name:lastName , dentist_name:dentistName , clinic_name:clinic , start_date:startDate , due_date:dueDate , delivery_method:delivery};
+
+                // Array of all data
+
+                if (localStorage.getItem("patientData") == null){
+                        const allData = [];
+                        allData.push(patientValues);
+                        localStorage.setItem("patientData",JSON.stringify(allData));
+                    }else{
+                        const allData = JSON.parse(localStorage.getItem("patientData"));
+                        allData.push(patientValues);
+                        localStorage.setItem("patientData",JSON.stringify(allData));
+                    }
+
+
+                //serialization of data (Object to JSON.stringify) and storing data in local storage
+
+                // localStorage.setItem("patientData" , JSON.stringify(allData));
+
+                
             });
             
 
