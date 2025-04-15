@@ -64,9 +64,11 @@
                 // Code to execute when patientData exists in localStorage
 
                 // just to check one data (will delete this after i put all values to their variables)
-                console.log(allData[0][1].case_id);
+                // console.log(allData[0][1].case_id);
 
-                console.log(allData[0].length);
+                console.log(allData);
+
+                // console.log(allData[0][1].case_status);
 
                 // Appending the cases table
 
@@ -80,8 +82,8 @@
                         <td>" + allData[0][i].clinic_name + "</td> \
                         <td>" + allData[0][i].first_name + " " + allData[0][i].last_name + "</td> \
                         <td> \
-                            <select> \
-                                <option value='inProgess'>In Progress</option> \
+                            <select class='caseStatus'> \
+                                <option value='inProgress'>In Progress</option> \
                                 <option value='hold'>On Hold</option> \
                                 <option value='finished'>Finished</option> \
                             </select> \
@@ -89,11 +91,20 @@
                         <td>" + allData[0][i].due_date + "</td> \
                     </tr>";
 
-                    //  first_name:firstName , last_name:lastName ,  ,  delivery_method:delivery
-
                     caseTable.insertAdjacentHTML('beforeend', tableAddition);
+
+
                 }
 
+                // Making sure the status remains the same which i give
+                let statusDropdowns = document.getElementsByClassName("caseStatus");
+
+                for ( let i = 0 ; i < allData[0].length ; i++ ){
+                    statusDropdowns[i].value = allData[0][i].case_status;
+                }
+
+                // need to change it such that the change in value saves it to local storage
+                                
                 
             }
 

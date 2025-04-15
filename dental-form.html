@@ -182,12 +182,7 @@
             document.getElementById("newCaseForm").addEventListener("submit", function(){
                 
                 event.preventDefault();
-                // if (!document.getElementById("newPatientForm").checkValidity()) {
-                //     // Prevent form submission if invalid
-                    
-                //     event.stopPropagation();
-                // };
-
+                
                 // forms to values
                 let caseId = document.getElementById("caseId").value;
                 let patientTitle = document.getElementById("patientTitle").value
@@ -198,9 +193,10 @@
                 let startDate = document.getElementById("startDate").value;
                 let dueDate = document.getElementById("dueDate").value;
                 let delivery = document.getElementById("delivery").value;
+                let status = "inProgress";
                 
                 //values to Object
-                const patientValues = {case_id:caseId , patient_title:patientTitle , first_name:firstName , last_name:lastName , dentist_name:dentistName , clinic_name:clinic , start_date:startDate , due_date:dueDate , delivery_method:delivery};
+                const patientValues = {case_id:caseId , patient_title:patientTitle , first_name:firstName , last_name:lastName , dentist_name:dentistName , clinic_name:clinic , start_date:startDate , due_date:dueDate , delivery_method:delivery , case_status:status};
 
                 // Array of all data
                 //serialization of data (Object to JSON.stringify) and storing data in local storage
