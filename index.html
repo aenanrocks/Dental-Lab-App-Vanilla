@@ -33,7 +33,7 @@
                         <th>Due Date</th>
                     </thead>
                     <tbody>
-                        <td>0001</td>
+                        <!-- <td>0001</td>
                         <td>Dr. Sample</td>
                         <td>Dental Clinic A</td>
                         <td>John Doe</td>
@@ -44,7 +44,7 @@
                                 <option value="finished">Finished</option>
                             </select>
                         </td>
-                        <td>15-10-2025</td>
+                        <td>15-10-2025</td> -->
 
                     </tbody>
                 </table>
@@ -71,14 +71,26 @@
                 // Appending the cases table
 
                 let caseTable = document.getElementById("casesTable");
-
-                let tableAddition = "<tr> \
-                        <td>John Doe</td> \
-                        <td>John Doe</td> \
-                        <td>John Doe</td> \
-                    </tr>";
+               
 
                 for ( let i = 0 ; i < allData[0].length ; i++ ){
+                    let tableAddition = "<tr> \
+                        <td>" + allData[0][i].case_id + "</td> \
+                        <td>" + allData[0][i].dentist_name + "</td> \
+                        <td>" + allData[0][i].clinic_name + "</td> \
+                        <td>" + allData[0][i].first_name + " " + allData[0][i].last_name + "</td> \
+                        <td> \
+                            <select> \
+                                <option value='inProgess'>In Progress</option> \
+                                <option value='hold'>On Hold</option> \
+                                <option value='finished'>Finished</option> \
+                            </select> \
+                        </td> \
+                        <td>" + allData[0][i].due_date + "</td> \
+                    </tr>";
+
+                    //  first_name:firstName , last_name:lastName ,  ,  delivery_method:delivery
+
                     caseTable.insertAdjacentHTML('beforeend', tableAddition);
                 }
 
