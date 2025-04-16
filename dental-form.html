@@ -185,7 +185,7 @@
                 
                 // forms to values
                 let caseId = document.getElementById("caseId").value;
-                let patientTitle = document.getElementById("patientTitle").value
+                let patientTitle = document.getElementById("patientTitle").value;
                 let firstName = document.getElementById("firstName").value;
                 let lastName = document.getElementById("lastName").value;
                 let dentistName = document.getElementById("dentistName").value;
@@ -202,8 +202,7 @@
                 //serialization of data (Object to JSON.stringify) and storing data in local storage
 
                 if (localStorage.getItem("patientData") == null){
-                        const allData = [];
-                        allData.push(patientValues);
+                        const allData = patientValues;
                         localStorage.setItem("patientData",JSON.stringify(allData));
                     }else{
                         const allData = JSON.parse(localStorage.getItem("patientData"));
