@@ -202,7 +202,7 @@
                 //serialization of data (Object to JSON.stringify) and storing data in local storage
 
                 if (localStorage.getItem("patientData") == null){
-                        const allData = patientValues;
+                        const allData = [patientValues];
                         localStorage.setItem("patientData",JSON.stringify(allData));
                     }else{
                         const allData = JSON.parse(localStorage.getItem("patientData"));
@@ -210,15 +210,19 @@
                         // checking if we have the same Id in database
                         for(let i = 0 ; i < allData.length ; i++){
                             if (caseId == allData[i].case_id){
-                                // confirm("Press a button!");
+                              
+                                // Alert that we have same ID
                                 let result = confirm("his Case ID already exists \n Do you want to OVERWRITE or CHANGE ID \n To OVERWRITE click OK and Cancel to CHANGE ID");
                                 if (result) {
-                                    console.log("User clicked OK");
+
+                                    // OVERWRITE CODE
+                                    allData[i] = patientValues;                                    
+                                    localStorage.setItem("patientData",JSON.stringify(allData));
+                                    window.location.href="index.html";
+                                    return;
                                 } else {
-                                    console.log("User clicked Cancel");
-                                }
-                                // alert("This Case ID already exists \n Do you want to OVERWRITE or CHANGE ID");
-                                return;
+                                    return;
+                                }                                
                             }
                         }
 
