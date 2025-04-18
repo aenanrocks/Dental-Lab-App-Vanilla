@@ -206,6 +206,15 @@
                         localStorage.setItem("patientData",JSON.stringify(allData));
                     }else{
                         const allData = JSON.parse(localStorage.getItem("patientData"));
+
+                        // checking if we have the same Id in database
+                        for(let i = 0 ; i < allData.length ; i++){
+                            if (caseId == allData[i].case_id){
+                                alert("AAAA");
+                                return;
+                            }
+                        }
+
                         allData.push(patientValues);
                         localStorage.setItem("patientData",JSON.stringify(allData));
                     }
