@@ -28,5 +28,4 @@ A lightweight, client-side web application designed to help dental clinics and l
 
 ---
 
-## 📁 File Structure
 
