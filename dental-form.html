@@ -210,7 +210,14 @@
                         // checking if we have the same Id in database
                         for(let i = 0 ; i < allData.length ; i++){
                             if (caseId == allData[i].case_id){
-                                alert("AAAA");
+                                // confirm("Press a button!");
+                                let result = confirm("his Case ID already exists \n Do you want to OVERWRITE or CHANGE ID \n To OVERWRITE click OK and Cancel to CHANGE ID");
+                                if (result) {
+                                    console.log("User clicked OK");
+                                } else {
+                                    console.log("User clicked Cancel");
+                                }
+                                // alert("This Case ID already exists \n Do you want to OVERWRITE or CHANGE ID");
                                 return;
                             }
                         }
